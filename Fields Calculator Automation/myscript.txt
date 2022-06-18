@@ -1,0 +1,251 @@
+
+' ----------------------------------------------
+' Script Written by Omer Kati for automating Fields Calculator use
+' 13:23:35  03.02.2021
+' ----------------------------------------------
+Dim oAnsoftApp
+Dim oDesktop
+Dim oProject
+Dim oDesign
+Dim oEditor
+Dim oModule
+Set oAnsoftApp = CreateObject("Ansoft.ElectronicsDesktop")
+Set oDesktop = oAnsoftApp.GetAppDesktop()
+oDesktop.RestoreWindow
+Set oProject = oDesktop.SetActiveProject("1layer_conductivity2")
+Set oDesign = oProject.SetActiveDesign("SlotMicrostrip_ATK")
+Set oModule = oDesign.GetModule("FieldsReporter")
+oModule.EnterQty "Poynting"
+oModule.CalcOp "Mag"
+oModule.EnterSurf "Rectangle3"
+oModule.CalcOp "Maximum"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "5.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "10.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "15.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "20.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "25.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "30.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "35.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "40.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "45.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"
+oModule.ClcEval "ATK_Solution : FF_Sweep", Array( _
+"$Cond:=", "0.000000", _
+"$conductivity:=", "1.710000S_per_m", _
+"$permit_layer1:=", "50.000000", _
+"$permit_layer2:=", "0.000000", _
+"$permit_layer3:=", "0.000000", _
+"$target:=", "50.000000", _
+"feedOffset:=", "0.750000cm", _
+"layer1:=", "19.000000mm", _
+"layer2:=", "0.000000mm", _
+"layer3:=", "0.000000mm", _
+"MuscleX:=", "15.000000cm", _
+"MuscleY:=", "20.000000cm", _
+"slotLength:=", "6.300000cm", _
+"slotWidth:=", "0.050000cm", _
+"subH:=", "1.000000mm", _
+"subX:=", "7.500000cm", _
+"subY:=", "10.000000cm", _
+"ustrip_offset:=", "2.300000cm", _
+"ustrip_width:=", "2.370000mm", _
+"Freq:=", "2.400000GHz", _
+"Phase:=", "0.000000deg")
+oModule.CalcStack "exch"

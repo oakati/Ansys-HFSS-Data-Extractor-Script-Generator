@@ -1,0 +1,127 @@
+
+' ----------------------------------------------
+' Script Written by Ömer Katý for automation of creating randomly-generated sweeps
+' 21:18:43  02.02.2021
+' ----------------------------------------------
+Dim oAnsoftApp
+Dim oDesktop
+Dim oProject
+Dim oDesign
+Dim oEditor
+Dim oModule
+Set oAnsoftApp = CreateObject("Ansoft.ElectronicsDesktop")
+Set oDesktop = oAnsoftApp.GetAppDesktop()
+oDesktop.RestoreWindow
+Set oProject = oDesktop.SetActiveProject("1layer_conductivity")
+Set oDesign = oProject.SetActiveDesign("SlotMicrostrip_ATK")
+Set oModule = oDesign.GetModule("Optimetrics")
+oModule.InsertSetup "OptiParametric", _
+Array("NAME:mysweep1", "IsEnabled:=", true, _
+Array("NAME:ProdOptiSetupDataV2", "SaveFields:=", true, "CopyMesh:=", false, "SolveWithCopiedMeshOnly:=", true), _
+Array("NAME:StartingPoint"), "Sim. Setups:=", _
+Array("ATK_Solution"), _
+Array("NAME:Sweeps", _
+Array("NAME:SweepDefinition", "Variable:=", "$conductivity", "Data:=", "0S_per_m", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer1", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer2", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer3", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$target", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "feedOffset", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer1", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer2", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer3", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "MuscleX", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "MuscleY", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "slotLength", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "slotWidth", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subH", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subX", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subY", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "ustrip_offset", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "ustrip_width", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0)), _
+Array("NAME:Sweep Operations", _
+"add:=", Array( "1.710000S_per_m", "5.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "10.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "15.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "20.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "25.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "30.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "35.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "40.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "45.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "50.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "9.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "5.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm")), _
+Array("NAME:Goals"))
+oModule.InsertSetup "OptiParametric", _
+Array("NAME:mysweep2", "IsEnabled:=", true, _
+Array("NAME:ProdOptiSetupDataV2", "SaveFields:=", true, "CopyMesh:=", false, "SolveWithCopiedMeshOnly:=", true), _
+Array("NAME:StartingPoint"), "Sim. Setups:=", _
+Array("ATK_Solution"), _
+Array("NAME:Sweeps", _
+Array("NAME:SweepDefinition", "Variable:=", "$conductivity", "Data:=", "0S_per_m", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer1", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer2", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer3", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$target", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "feedOffset", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer1", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer2", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer3", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "MuscleX", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "MuscleY", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "slotLength", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "slotWidth", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subH", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subX", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subY", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "ustrip_offset", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "ustrip_width", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0)), _
+Array("NAME:Sweep Operations", _
+"add:=", Array( "1.710000S_per_m", "5.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "10.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "15.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "20.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "25.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "30.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "35.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "40.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "45.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "50.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "14.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "5.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm")), _
+Array("NAME:Goals"))
+oModule.InsertSetup "OptiParametric", _
+Array("NAME:mysweep3", "IsEnabled:=", true, _
+Array("NAME:ProdOptiSetupDataV2", "SaveFields:=", true, "CopyMesh:=", false, "SolveWithCopiedMeshOnly:=", true), _
+Array("NAME:StartingPoint"), "Sim. Setups:=", _
+Array("ATK_Solution"), _
+Array("NAME:Sweeps", _
+Array("NAME:SweepDefinition", "Variable:=", "$conductivity", "Data:=", "0S_per_m", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer1", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer2", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$permit_layer3", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "$target", "Data:=", "0", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "feedOffset", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer1", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer2", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "layer3", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "MuscleX", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "MuscleY", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "slotLength", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "slotWidth", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subH", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subX", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "subY", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "ustrip_offset", "Data:=", "0cm", "OffsetF1:=", false, "Synchronize:=", 0), _
+Array("NAME:SweepDefinition", "Variable:=", "ustrip_width", "Data:=", "0mm", "OffsetF1:=", false, "Synchronize:=", 0)), _
+Array("NAME:Sweep Operations", _
+"add:=", Array( "1.710000S_per_m", "5.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "10.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "15.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "20.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "25.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "30.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "35.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "40.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "45.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm"), _
+"add:=", Array( "1.710000S_per_m", "50.000000", "0.000000", "0.000000", "50.000000", "0.750000cm", "19.000000mm", "0.000000mm", "0.000000mm", "15.000000cm", "20.000000cm", "6.300000cm", "0.050000cm", "1.000000mm", "7.500000cm", "10.000000cm", "2.300000cm", "2.370000mm")), _
+Array("NAME:Goals"))
